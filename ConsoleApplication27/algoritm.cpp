@@ -1,38 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include "algoritm.h"
 using namespace std;
-class Student
-{
-public:
-	int id=0;
-	float performance=0;
-	vector <int> priorites{1,4,4};
-	int first_elective_id = -1;
-	int second_elective_id = -1;
-	bool firstAvailable = false;
-	bool secondAvailable = false;
-	int current_prior=-1;
-	Student(int Id, float Performace, std::vector <int>  Priorites)
-		:id(Id), performance(Performace), priorites(Priorites)
-	{}
-	Student(){}
-};
 
-class Elective
-{
-public:
-	unsigned int id=0;
-	unsigned int capacity=0;
-	vector <Student> students;
-	vector <Student> resultStudent;
-	int reserve = 0;
-	int day=0;
-
-	Elective(int Id, int Capacity, std::vector <Student> Students, int Day)
-		: id(Id), capacity(Capacity), students(Students), day(Day)
-	{}
-};
 #pragma region Побочки
 int search_student(Elective a, int id)
 {
@@ -162,7 +133,7 @@ void Floyd(vector<Elective> electives, vector <Student> students) {
 	for (int i = 0; i < tapki_bratki.size(); i++)
 		for (int i1 = 0; i1 < tapki_bratki.size(); i1++)
 			tapki_bratki[i][i1][0] = { i,i1 };
-
+	
 	vector<vector<float>> graff;
 	vector<vector<int>> id_graff;
 	Create_graff(electives, students, graff, id_graff);
@@ -193,15 +164,11 @@ void Floyd(vector<Elective> electives, vector <Student> students) {
 						// замена первого. Костыль?
 						int menyai = search_student(electives[0], first.id);
 						electives[0].resultStudent[menyai] = temp_stud;
-						// лишь бы сработало
 						Floyd(electives, students);
 						return;
 					}
 				}
-
 			}
-
-
 }
 
 void Clean_shit(vector<Elective> electives, vector <Student> students) {
