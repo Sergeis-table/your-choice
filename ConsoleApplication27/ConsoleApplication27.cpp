@@ -1,6 +1,7 @@
 ﻿
 #include <iostream>
-#include <Header.h>
+#include <vector>
+#include "algoritm.h"
 int main()
 {
     // ждите апдейт

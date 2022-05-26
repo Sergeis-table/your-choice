@@ -18,9 +18,12 @@
     <ClCompile Include="ConsoleApplication27.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="algoritm.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Header.h">
+    <ClInclude Include="algoritm.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
